@@ -32,6 +32,16 @@ public class Etana {
 	@Size(min=2, message = "Liian lyhyt")
 	@Size (max=30, message = "Liian pitkä")
     private String latina;
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	private String url;
     
 	private double pituus;
     

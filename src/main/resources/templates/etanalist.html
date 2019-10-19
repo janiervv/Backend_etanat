@@ -9,13 +9,15 @@
 	<table>
 		<tbody>
 			<tr th:each = "etana : ${etanat}">
-				<td th:text = "${etana.id}"></td>
+				<td ><img th:src= "${etana.url}"  alt="Etana" style="width:60px;height:60px"></td>
 				<td th:text = "${etana.laji}"></td>
 				<td th:text = "${etana.latina}"></td>
 				<td th:text = "${etana.pituus}"></td>
 				<td th:text = "${etana.vari.vari}"></td>
 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href = "@{/delete/{id}(id=${etana.id})}">Poista</a></td>
 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href = "@{/muokkaa/{id}(id=${etana.id})}">Muokkaa</a></td>
+				<td> <a th:href = "@{/api/etanas/{id}(id=${etana.id})}">API</a></td>
+
 			</tr>
 		</tbody>
 	</table>
