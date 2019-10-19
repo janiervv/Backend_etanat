@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Etanalistaus</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h1>Etanalistaus</h1>
+	<table>
+		<tbody>
+			<tr th:each = "etana : ${etanat}">
+				<td th:text = "${etana.id}"></td>
+				<td th:text = "${etana.laji}"></td>
+				<td th:text = "${etana.latina}"></td>
+				<td th:text = "${etana.pituus}"></td>
+				<td th:text = "${etana.vari.vari}"></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href = "@{/delete/{id}(id=${etana.id})}">Poista</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href = "@{/muokkaa/{id}(id=${etana.id})}">Muokkaa</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/lisaa}">Lisää etana</a>
+	<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-danger"/>
+	</form>
+</body>
+</html>
