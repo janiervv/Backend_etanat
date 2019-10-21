@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+	<link type="text/css" rel="stylesheet" href="ulkoasu.css">
 	<title>Etanalistaus</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	
 </head>
 <body>
 <h1>Lisää etana</h1>
 
-
 <form th:action=@{save} th:object="${etana}" action="#" method="post">
 
-Laji: <input type="text" id="laji" th:field="*{laji}" class="form-control"/> <br>
-<a th:if="${#fields.hasErrors('laji')}" th:errors="*{laji}">Error</a>
-
-Latina: <input type="text" id="latina" th:field="*{latina}" class="form-control"/> <br>
-<a th:if="${#fields.hasErrors('latina')}" th:errors="*{latina}">Error</a>
-
-Pituus: <input type="text" id="pituus" th:field="*{pituus}" class="form-control"/> <br>
-
-Kuva: <input type="text" id="url" th:field="*{url}" class="form-control"/> <br>
-
-					
-		  	<label for="etanaid">Väri</label>
-			 <select id="etanaid" th:field="*{vari}" class="form-control">
-       			 	<option th:value=1 th:text="Musta"></option>
-				    <option th:value=2 th:text="Ruskea"></option>
-				    <option th:value=3 th:text="Vaalea"></option>
-    		</select>
-    		
-
-
-
-
-<input type="submit" class="btn-primary" value="Tallenna"></input>
+	<a class="listaus"> Laji:</a> <input type="text" id="laji" th:field="*{laji}" class="form-control"/>
+	<a th:if="${#fields.hasErrors('laji')}" th:errors="*{laji}">Error</a>
+	
+	<br>
+	
+	<a class="listaus"> Latina:</a> <input type="text" id="latina" th:field="*{latina}" class="form-control"/>
+	<a th:if="${#fields.hasErrors('latina')}" th:errors="*{latina}">Error</a>
+	
+	<br>
+	
+	<a class="listaus"> Pituus:</a> <input type="text" id="pituus" th:field="*{pituus}" class="form-control"/>
+	
+	<br>
+	
+	<a class="listaus"> Kuva:</a> <input type="text" id="url" th:field="*{url}" class="form-control"/> 
+	
+	<br>
+			
+	 	<label class="listaus" for="etanaid">Väri</label>
+	 <select id="etanaid" th:field="*{vari}" class="form-control">
+	    			 	<option th:value=1 th:text="Musta"></option>
+		    <option th:value=2 th:text="Ruskea"></option>
+		    <option th:value=3 th:text="Vaalea"></option>
+	 		</select>
+	 		
+	 <br><br>
+	    		
+	
+	
+	<input type="submit" class="Button2" value="Tallenna"></input>
 
 </form>
 

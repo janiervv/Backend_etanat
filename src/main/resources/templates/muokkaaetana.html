@@ -1,35 +1,68 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Muokkaa etanat tietoja</title>
+    <title>Muokkaa etanan tietoja</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<div>
-		<form th:object="${etana}" th:action="@{/save}" action="#" method="post">
+    
+	<style type="text/css">
+	label {
+		display: block;
+		width: 5em;
+		float: left;
+	}
+	</style>
 
+</head>
+
+<body style="background-color: #f6f8f5;">
+<h1 style="color: #6168a1;">Muokkaa etanaa</h1>
+	
+			<form th:object="${etana}" th:action="@{/save}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}"/>
-			<label for="laji">Laji </label> 
+			
+			<label for="laji">Laji: </label> 
 			<input type="text" id="laji" th:field="${etana.laji}" />
-			<br><label for="latina">Latina </label> 
-			<input type="text" id="latina" th:field="${etana.latina}" />
-			<br><label for="pituus">Latina </label> 
-			<input type="text" id="pituus" th:field="${etana.pituus}" />
+			
 			<br>
 			
-			<br><label for="url">Kuva </label> 
+			<label for="latina">Latina: </label> 
+			<input type="text" id="latina" th:field="${etana.latina}" />
+			
+			<br>
+			
+			<label for="pituus">Pituus: </label> 
+			<input type="text" id="pituus" th:field="${etana.pituus}" />
+			
+			<br>
+			
+			<label for="url">Kuva: </label> 
 			<input type="text" id="url" th:field="${etana.url}" />
 			
-			<label for="etanaid">Väri</label>
+			<br>
+			
+			<label for="etanaid">Väri:</label>
 			 <select id="etanaid" th:field="*{vari}" class="form-control">
        			 	<option th:value=1 th:text="Musta"></option>
 				    <option th:value=2 th:text="Ruskea"></option>
 				    <option th:value=3 th:text="Vaalea"></option>
     		</select>
+    		<br><br>
 
-			<input type="submit" value="Päivitä"></input>
+			<input style="box-shadow: 0px 10px 14px -7px #276873;
+			background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+			background-color:#599bb3;
+			border-radius:4px;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:15px;
+			font-weight:bold;
+			padding:5px 5px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #3d768a;" 
+			type="submit" value="Päivitä"></input>
 		</form>
 
-	</div>
 </body>
 </html>
