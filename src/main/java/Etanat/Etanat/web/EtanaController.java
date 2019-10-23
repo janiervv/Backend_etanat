@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import Etanat.Etanat.domain.Etana;
 import Etanat.Etanat.domain.EtanaRepository;
-import Etanat.Etanat.domain.UserRepository;
+
 
 
 @Controller
@@ -25,8 +25,6 @@ public class EtanaController {
 	@Autowired
 	private EtanaRepository repository;
 	
-	@Autowired
-	private UserRepository userrepository;
 	
 	@RequestMapping(value = {"/", "/etanalist"})
 	public String EtanaList(Model model) {
@@ -58,20 +56,19 @@ public class EtanaController {
 }
 	
     @RequestMapping(value="/lisaa", method=RequestMethod.POST)
-    public String greetingSubmit(@Valid Etana etana, BindingResult result, Model model) {
-    	System.out.print(result);
-        if (result.hasErrors()) {
-        	return "lisaaetana";
-        }
-    	model.addAttribute("etana", etana);
+    public String lisaaetana(Model model) {
+    	model.addAttribute("etana", new Etana());
         return "etanalist";
     }
 	
 	@PostMapping("save")
-	public String tallenna(Etana etana) {
-		repository.save(etana);
-		return "redirect:etanalist";
-
-}
+    public String greetingSubmit(@Valid Etana etana, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+        	return "lisaaetana";
+        }
+    	repository.save(etana);
+    	return "redirect:etanalist";
+    }
+	
 
 }
